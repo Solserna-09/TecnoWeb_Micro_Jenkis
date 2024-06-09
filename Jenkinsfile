@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar el Repositorio'){
             steps {
-                git branch: 'main', url: 'https://github.com/julioiud/micro-2024ii.git'
+                git branch: 'main', url: 'https://github.com/Solserna-09/TecnoWeb_Micro_Jenkis.git'
             }
         }
         stage('Construir imagen de Docker'){
@@ -13,7 +13,7 @@ pipeline {
                     withCredentials([
                         string(credentialsId: 'MONGO_URI', variable: 'MONGO_URI')
                     ]) {
-                        docker.build('proyectos-micro:v1', '--build-arg MONGO_URI=${MONGO_URI} .')
+                        docker.build('proyectos-microservicios:v1', '--build-arg MONGO_URI=${MONGO_URI} .')
                     }
                 }
             }
@@ -36,7 +36,7 @@ pipeline {
             emailext (
                 subject: "Status del build: ${currentBuild.currentResult}",
                 body: "Se ha completado el build. Puede detallar en: ${env.BUILD_URL}",
-                to: "indira.hamdam@est.iudigital.edu.co",
+                to: "sol.serna@est.iudigital.edu.co",
                 from: "jenkins@iudigital.edu.co"
             )
         }
