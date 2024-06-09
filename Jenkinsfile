@@ -7,13 +7,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Solserna-09/TecnoWeb_Micro_Jenkis.git'
             }
         }
-        stage('Debug Docker') {
-            steps {
-                script {
-                    sh 'docker --version'
-                }
-            }
-        }
+   
         stage('Construir imagen de Docker'){
             steps {
                 script {
