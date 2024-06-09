@@ -7,17 +7,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Solserna-09/TecnoWeb_Micro_Jenkis.git'
             }
         }
-        stage('Construir imagen de Docker'){
-            steps {
-                script {
-                    withCredentials([
-                        string(credentialsId: 'MONGO_URI', variable: 'MONGO_URI')
-                    ]) {
-                        docker.build('proyectos-microservicios:v1', '--build-arg MONGO_URI=${MONGO_URI} .')
-                    }
-                }
-            }
-        }
+ 
         stage('Desplegar contenedores Docker'){
             steps {
                 script {
