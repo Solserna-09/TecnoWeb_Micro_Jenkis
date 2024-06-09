@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    stages {
+        stage('Check Docker') {
+            steps {
+                sh 'docker --version'
+            }
+        }
+    }
     
     stages {
         stage('Clonar el Repositorio'){
