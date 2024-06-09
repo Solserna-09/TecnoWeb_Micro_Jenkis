@@ -6,7 +6,6 @@ pipeline {
                 sh 'docker --version'
             }
         }
-    }
     
     stages {
         stage('Clonar el Repositorio'){
