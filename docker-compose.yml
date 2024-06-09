@@ -1,8 +1,8 @@
 version : "3.7"
 services :
-  proyectos-micro :
-    container_name : proyectos-micro
-    image : proyectos-micro:v1
+  proyectos-microservicios :
+    container_name : proyectos-microservicios
+    image : proyectos-microservicios:v1
     build :
       context: .
     ports : 
@@ -13,9 +13,9 @@ services :
       - MONGO_URI=${MONGO_URI}
       - PORT=4002
 
-  proyectos-micro-2 :
-    container_name : proyectos-micro-2
-    image : proyectos-micro:v1
+  proyectos-microservicios-2 :
+    container_name : proyectos-microservicios-2
+    image : proyectos-microservicios:v1
     ports : 
       - "4002"
     networks :
