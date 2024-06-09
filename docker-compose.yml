@@ -17,22 +17,9 @@ services :
       - "4002"
     networks :
       - proyectos-app  
-
-  proyectos-microservicios-3 :
-    container_name :  proyectos-microservicios-3
-    image :   proyectos-microservicios:v1
-    ports : 
-      - "4002"
-    networks :
-      - proyectos-app  
-
-  proyectos-microservicios-4 :
-    container_name :  proyectos-microservicios-4
-    image :   proyectos-microservicios:v1
-    ports : 
-      - "4002"
-    networks :
-      - proyectos-app  
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
 
   balanceador :
     container_name : balanceador
