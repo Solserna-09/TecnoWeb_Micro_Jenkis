@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        JD_IMAGE = 'proyectos-micro:v1'
+    }
+
     stages {
         stage('Clonar el Repositorio'){
             steps {
